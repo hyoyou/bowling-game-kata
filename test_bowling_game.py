@@ -5,12 +5,14 @@ class TestBowlingGame(unittest.TestCase):
     def setUp(self):
         self.game = Game()
 
+    def roll_many(self, pins, rolls):
+        for i in range(rolls):
+            self.game.roll(pins)
+
     def test_gutterGame(self):
-        for i in range(20):
-            self.game.roll(0)
+        self.roll_many(0, 20)
         self.assertEqual(self.game.score(), 0)
     
     def test_allOnes(self):
-        for i in range(20):
-            self.game.roll(1)
+        self.roll_many(1, 20)
         self.assertEqual(self.game.score(), 20)
