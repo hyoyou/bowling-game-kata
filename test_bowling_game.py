@@ -23,3 +23,10 @@ class TestBowlingGame(unittest.TestCase):
         self.game.roll(3)
         self.roll_many(0, 17)
         self.assertEqual(self.game.score(), 16)
+
+    def test_oneStrike(self):
+        self.game.roll(10)
+        self.game.roll(3)
+        self.game.roll(4)
+        self.roll_many(0, 16)
+        self.assertEqual(self.game.score(), 24)
