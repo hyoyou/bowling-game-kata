@@ -1,0 +1,4 @@
+*.pyc
+ToDo.md
+.vscode
+__pycache__
