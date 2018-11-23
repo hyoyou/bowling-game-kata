@@ -11,7 +11,7 @@ class Game(object):
         score = 0
         frame_index = 0
         for frame in range(10):
-            if self._rolls[frame_index] == 10:
+            if self.is_strike(frame_index):
                 score += 10 + self._rolls[frame_index + 1] + self._rolls[frame_index + 2]
                 frame_index += 1
             elif self.is_spare(frame_index):
@@ -22,5 +22,8 @@ class Game(object):
                 frame_index += 2
         return score
     
+    def is_strike(self, frame_index):
+        return self._rolls[frame_index] == 10
+
     def is_spare(self, frame_index):
         return self._rolls[frame_index] + self._rolls[frame_index + 1] == 10
