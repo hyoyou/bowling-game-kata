@@ -9,11 +9,13 @@ class Game(object):
 
     def score(self):
         score = 0
-        for frame_index in range(0, 20, 2):
+        frame_index = 0
+        for frame in range(10):
             if self.is_spare(frame_index):
                 score += 10 + self._rolls[frame_index + 2]
             else:
                 score += self._rolls[frame_index] + self._rolls[frame_index + 1]
+            frame_index += 2
         return score
     
     def is_spare(self, frame_index):
